@@ -1,0 +1,116 @@
+package ${package}.${moduleName}.service;
+
+import ${package}.${moduleName}.entity.${className};
+import ${package}.${moduleName}.dto.${className}DTO;
+
+import java.util.List;
+
+/**
+ * ${comments}业务逻辑接口
+ *
+ * @author ${author} ${datetime}
+ * @version 1.0
+ **/
+public interface ${className}Service {
+
+	/**
+	 * 新增${comments}
+	 *
+	 * @param ${classname}DTO
+	 * @return Integer
+	 * @updateRecord - 初次创建
+	 * @version 1.0 (${datetime})
+	 * @author ${author}
+	 **/
+	Integer insert(${className}DTO ${classname}DTO);
+
+    /**
+     * 新增或修改${comments}
+     *
+     * @param ${classname}DTO
+     * @return Integer
+     * @updateRecord - 初次创建
+     * @version 1.0 (${datetime})
+     * @author ${author}
+     **/
+    Integer insertOrUpdate(${className}DTO ${classname}DTO);
+
+
+	/**
+	 * 删除${comments}，实际上是修改字段is_delete 0未删除 1已删除
+	 *
+	 * @param id
+	 * @return Integer
+	 * @updateRecord - 初次创建
+	 * @version 1.0 (${datetime})
+	 * @author ${author}
+	 **/
+	Integer deleteById(String id);
+
+	/**
+	 * 置单条记录为失效
+	 *
+	 * @param id
+	 * @return Integer
+	 * @updateRecord - 初次创建
+	 * @version 1.0 (${datetime})
+	 * @author ${author}
+	 **/
+	Integer updateToInValidateById(String id);
+
+	/**
+	 * 置单条记录为有效
+	 *
+	 * @param id
+	 * @return Integer
+	 * @updateRecord - 初次创建
+	 * @version 1.0 (${datetime})
+	 * @author ${author}
+	 **/
+	Integer updateToValidateById(String id);
+
+	/**
+	 * 修改${comments}
+	 *
+	 * @param ${classname}DTO
+	 * @return Integer
+	 * @updateRecord - 初次创建
+	 * @version 1.0 (${datetime})
+	 * @author ${author}
+	 **/
+	Integer updateById(${className}DTO ${classname}DTO);
+
+	/**
+	 * 按参数${classname}DTO的非空属性查询列表
+	 *
+	 * @param ${classname}DTO
+	 * @return Integer
+	 * @updateRecord - 初次创建
+	 * @version 1.0 (${datetime})
+	 * @author ${author}
+	 **/
+	List<${className}DTO> selectListByObject(${className}DTO ${classname}DTO);
+
+	/**
+	 * 按参数${classname}DTO的非空属性查询单条记录
+	 *
+	 * @param ${classname}DTO
+	 * @return Integer
+	 * @updateRecord - 初次创建
+	 * @version 1.0 (${datetime})
+	 * @author ${author}
+	 **/
+	${className}DTO selectOneByObject(${className}DTO ${classname}DTO);
+
+	/**
+	 * 主键查询${comments}
+	 *
+	 * @param id
+	 * @return ${className}DTO
+	 * @updateRecord - 初次创建
+	 * @version 1.0 (${datetime})
+	 * @author ${author}
+	 **/
+	${className}DTO selectById(String id);
+
+}

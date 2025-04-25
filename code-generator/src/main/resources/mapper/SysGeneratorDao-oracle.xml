@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 这里有个坑是Oracle会把所有列名置为大写，需要加双引号把列名引起来保持其大小写 -->
+<mapper namespace="io.github.zhidao.code.dao.SysGeneratorDao">
+    <select id="queryListOracle" resultType="map">
+        select tableName "tableName", 'default' as "engine", tableComment as "tableComment", CREATETIME as "createTime"
+        from (
+        select rownum rn, alltb.TABLE_NAME tableName, '', allcm.COMMENTS tableComment, user_obj.CREATED createTime
+        from
+        all_all_tables alltb
+        inner join
+        all_tab_comments allcm
+        on alltb.table_name = allcm.table_name and alltb.owner = allcm.owner and alltb.owner = 'CBPDATA'
+        <if test="tableName != null and tableName.trim() != ''">
+            and alltb.table_name like concat('%', #{tableName}, '%')
+        </if>
+        inner join
+        user_objects user_obj
+        on user_obj.OBJECT_TYPE = 'TABLE' and alltb.TABLE_NAME = user_obj.OBJECT_NAME
+        )
+        <if test="beiginIndex != null and endIndex != null">
+            where beiginIndex <![CDATA[ >= #{beiginIndex} and endIndex <=#{endIndex} ]]>
+        </if>
+        order by createTime desc
+    </select>
+
+    <!-- 注意要修改表属主 -->
+    <select id="queryTotalOracle" resultType="int">
+        select count(1) from all_all_tables all_tb where owner = 'CBPDATA'
+        <if test="tableName != null and tableName.trim() != ''">
+            and table_name like concat('%', #{tableName}, '%')
+        </if>
+    </select>
+
+    <!-- 注意要修改表属主 -->
+    <select id="queryTableOracle" resultType="map">
+        select alltb.TABLE_NAME "tableName",
+               'default' "engine",
+               allcm.COMMENTS   "tableComment",
+               user_obj.CREATED "createTime"
+        from all_all_tables alltb
+                 inner join
+             all_tab_comments allcm
+             on alltb.table_name = allcm.table_name and alltb.owner = allcm.owner and alltb.owner = 'CBPDATA'
+                 inner join
+             user_objects user_obj
+             on user_obj.OBJECT_TYPE = 'TABLE' and alltb.TABLE_NAME = user_obj.OBJECT_NAME
+                 and alltb.TABLE_NAME = #{tableName}
+    </select>
+
+    <select id="queryColumnsOracle" resultType="map">
+        select columnName "columnName", dataType "dataType", columnComment "columnComment", tempB.columnKey "columnKey"
+        from (
+                 select cols.TABLE_NAME                                                              tableName,
+                        cols.column_name                                                             columnName,
+                        case when cols.data_type = 'VARCHAR2' then 'VARCHAR' else cols.data_type end dataType,
+                        allcm.comments                                                               columnComment
+                 from cols
+                          inner join all_col_comments allcm
+                                     on cols.TABLE_NAME = #{tableName} and cols.TABLE_NAME = allcm.TABLE_NAME and
+                                        cols.COLUMN_NAME = allcm.column_name) tempA
+                 left join (
+            select 'PRI' columnKey, ucons.column_name
+            from user_cons_columns ucons
+            where table_name = #{tableName}
+              and constraint_name like 'PK%'
+        ) tempB
+                           on tempA.columnName = tempB.COLUMN_NAME
+    </select>
+</mapper>

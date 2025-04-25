@@ -1,0 +1,18 @@
+package ${package}.${moduleName}.constant;
+
+
+/**
+ * ${comments}Constant 数据库表字段对应的实体类属性名常量类,
+ * 					在编写自定义impl层tk.mybatis方法需要指定属性名时使用
+ * @author ${author} ${datetime}
+ * @version 1.0
+ */
+public class ${className}Constant{
+
+#foreach ($column in $columns)
+	/** $column.comments */
+	public static final String $column.ATTR_NAME = "$column.attrname";
+#end
+
+	private ${className}Constant() {}
+}

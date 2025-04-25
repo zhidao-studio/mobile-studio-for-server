@@ -1,0 +1,161 @@
+package ${package}.${moduleName}.service.impl;
+
+import cn.hutool.core.convert.Convert;
+import io.github.zhidao.ms.common.service.BaseCurdService;
+import ${package}.${moduleName}.dto.${className}DTO;
+import ${package}.${moduleName}.entity.${className};
+import ${package}.${moduleName}.mapper.${className}Mapper;
+import ${package}.${moduleName}.service.${className}Service;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * ${comments}业务逻辑实现
+ *
+ * @author ${author} ${datetime}
+ * @version 1.0
+ */
+@Service
+@Slf4j
+public class ${className}ServiceImpl extends BaseCurdService<${className}> implements ${className}Service {
+
+	@Autowired
+	private ${className}Mapper ${classname}Mapper;
+
+	/**
+     * 新增${comments}
+     *
+     * @param ${classname}DTO
+     * @return Integer
+     * @updateRecord - 初次创建
+     * @version 1.0 (${datetime})
+     * @author ${author}
+     */
+	@Override
+	public Integer insert(${className}DTO ${classname}DTO) {
+		return baseInsert(Convert.convert(${className}.class,${classname}DTO));
+	}
+
+	/**
+     * 新增或修改${comments}
+     *
+     * @param ${classname}DTO
+     * @return Integer
+     * @updateRecord - 初次创建
+     * @version 1.0 (${datetime})
+     * @author ${author}
+     */
+	@Override
+	public Integer insertOrUpdate(${className}DTO ${classname}DTO) {
+		return insertOrUpdate(Convert.convert(${className}.class,${classname}DTO), ${classname}DTO.getId());
+	}
+
+	/**
+     * 删除${comments},实际是置is_delete 为1
+     *
+     * @param id
+     * @return Integer
+     * @updateRecord - 初次创建
+     * @version 1.0 (${datetime})
+     * @author ${author}
+     */
+	@Override
+	public Integer deleteById(String id) {
+		return baseDeleteByPK(new ${className}(id));
+	}
+
+	/**
+     * 置为失效
+     *
+     * @param id
+     * @return Integer
+     * @updateRecord - 初次创建
+     * @version 1.0 (${datetime})
+     * @author ${author}
+     */
+	@Override
+	public Integer updateToInValidateById(String id) {
+		return baseDisableByPK(new ${className}(id));
+	}
+
+	/**
+     * 置为生效
+     *
+     * @param id
+     * @return Integer
+     * @updateRecord - 初次创建
+     * @version 1.0 (${datetime})
+     * @author ${author}
+     */
+	@Override
+	public Integer updateToValidateById(String id) {
+		return baseEnableByPK(new ${className}(id));
+	}
+
+	/**
+     * 修改${comments}
+     *
+     * @param ${classname}DTO
+     * @return Integer
+     * @updateRecord - 初次创建
+     * @version 1.0 (${datetime})
+     * @author ${author}
+     */
+	@Override
+	public Integer updateById(${className}DTO ${classname}DTO) {
+		return baseUpdateByPK(Convert.convert(${className}.class,${classname}DTO));
+	}
+
+	/**
+     * 按参数${classname}DTO的非空属性查询列表
+     *
+     * @param ${classname}DTO
+     * @return List<${className}DTO>
+     * @updateRecord - 初次创建
+     * @version 1.0 (${datetime})
+     * @author ${author}
+     */
+	@Override
+	public List<${className}DTO> selectListByObject(${className}DTO ${classname}DTO){
+		List<${className}> ${classname}List = baseSelectListByObject(Convert.convert(${className}.class,${classname}DTO));
+		List<${className}DTO> ${classname}DtoList = new ArrayList<>();
+		${classname}List.forEach(${classname}Entity -> {
+			${classname}DtoList.add(Convert.convert(${className}DTO.class,${classname}Entity));
+		});
+		return ${classname}DtoList;
+	}
+
+	/**
+     * 按参数${classname}DTO的非空属性查询单条记录
+     *
+     * @param ${classname}DTO
+     * @return List<${className}DTO>
+     * @updateRecord - 初次创建
+     * @version 1.0 (${datetime})
+     * @author ${author}
+     */
+	@Override
+	public ${className}DTO selectOneByObject(${className}DTO ${classname}DTO) {
+		${className} ${classname}Entity = baseSelectOneByObject(Convert.convert(${className}.class,${classname}DTO));
+		return Convert.convert(${className}DTO.class,${classname}Entity);
+	}
+
+	/**
+     * 主键查询${comments}
+     *
+     * @param id
+     * @return ${className}DTO
+     * @updateRecord - 初次创建
+     * @version 1.0 (${datetime})
+     * @author ${author}
+     */
+	@Override
+	public ${className}DTO selectById(String id) {
+		${className} ${classname}Entity = baseSelectByPK(new ${className}(id));
+		return Convert.convert(${className}DTO.class,${classname}Entity);
+	}
+}

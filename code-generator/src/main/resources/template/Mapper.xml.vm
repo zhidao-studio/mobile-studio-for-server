@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--注册操作对应Entity的Mapper类-->
+<mapper namespace="${package}.${moduleName}.mapper.${className}Mapper">
+
+	<!-- Entity类的ResultMap -->
+	<resultMap type="${package}.${moduleName}.entity.${className}" id="${classname}ResultMap">
+#foreach($column in $columns)
+		<result property="${column.attrname}" column="${column.columnName}"/>
+#end
+	</resultMap>
+
+	<!--高频sql子语句，全部列的sql段-->
+	<sql id="${classname}ColSql">
+#foreach($column in $columns)
+#if($foreach.hasNext)
+		${column.columnName},
+#else
+		${column.columnName}
+#end
+#end
+	</sql>
+	
+	<!--Add your code here-->
+
+
+
+</mapper>

@@ -1,0 +1,33 @@
+package ${package}.${moduleName}.dto;
+
+import io.github.zhidao.ms.common.dto.BaseDTO;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Builder;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import java.time.LocalDateTime;
+
+/**
+ * ${comments}DTO
+ *
+ * @author ${author} ${datetime}
+ * @version 1.0
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class ${className}DTO extends BaseDTO {
+
+	private static final long serialVersionUID = 1L;
+#foreach ($column in $columns)
+#if($column.columnName != 'id' && $column.columnName != 'create_user' && $column.columnName != 'create_time' && $column.columnName != 'update_user' && $column.columnName != 'update_time' && $column.columnName != 'valid' && $column.columnName != 'deleted' && $column.columnName != 'ID' && $column.columnName != 'CREATE_USER' && $column.columnName != 'CREATE_TIME' && $column.columnName != 'UPDATE_USER' && $column.columnName != 'UPDATE_TIME' && $column.columnName != 'VALID' && $column.columnName != 'DELETED')
+	/** $column.comments */
+	@Schema(description = "$column.comments")
+	private $column.attrType $column.attrname;
+#else
+#end
+#end
+}

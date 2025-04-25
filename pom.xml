@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.zhidao.ms</groupId>
+    <artifactId>mobile-studio-for-server</artifactId>
+    <version>${revision}</version>
+
+    <name>mobile-studio-for-server</name>
+
+    <properties>
+        <revision>1.0.0</revision>
+        <java.version>17</java.version>
+    </properties>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>mobile-studio-common</module>
+        <module>mobile-studio-um-app</module>
+        <module>code-generator</module>
+    </modules>
+
+</project>

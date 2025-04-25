@@ -1,0 +1,26 @@
+# Tomcat
+server:
+  tomcat:
+    max-threads: 10
+    min-spare-threads: 10
+  context-path: /generator/
+  port: 8080
+
+# oracle
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@//100.69.236.18:1634/cbp
+    username: cbpdata
+    password: zhaoshang001
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  resources:
+    static-locations: classpath:/static/,classpath:/views/
+
+# Mybatis配置
+mybatis:
+  mapperLocations: classpath:mapper/**/*.xml
+

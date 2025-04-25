@@ -1,0 +1,18 @@
+{
+#set ($mycounter=0)
+#foreach ($column in $columns)
+#if($column.columnName != 'ID' && $column.columnName != 'IS_DELETE' && $column.columnName != 'IS_VALID' && $column.columnName != 'MODIFY_OPR' && $column.columnName != 'DATE_MODIFY' && $column.columnName != 'DATE_CREATE' && $column.columnName != 'CREATE_OPR' && $column.columnName != 'id' && $column.columnName != 'is_delete' && $column.columnName != 'is_valid' && $column.columnName != 'modify_opr' && $column.columnName != 'date_modify' && $column.columnName != 'date_create' && $column.columnName != 'create_opr')
+#if($mycounter == 0)#else,
+#end
+#if($column.dataType == 'CHAR')"$column.attrname":"A"
+#elseif($column.dataType == 'VARCHAR')"$column.attrname":"xxx$column.attrname"
+#elseif($column.dataType == 'NUMBER')"$column.attrname":"666.00"
+#elseif($column.dataType == 'DATE')"$column.attrname":"2017-01-01 00:00:00"
+#elseif($column.dataType == 'CLOB')"$column.attrname":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+#elseif($column.dataType == 'INTEGER')"$column.attrname":"8"
+#else"$column.attrname":"UKNOWN-TYPE"#end#set ($mycounter=1)
+#else#end
+#end
+}
+
+   

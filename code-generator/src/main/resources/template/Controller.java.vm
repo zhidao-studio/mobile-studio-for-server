@@ -1,0 +1,123 @@
+package ${package}.${moduleName}.controller;
+
+import io.github.zhidao.ms.common.dto.PageDTO;
+import io.github.zhidao.ms.common.webapi.ApiResult;
+import ${package}.${moduleName}.dto.${className}DTO;
+import ${package}.${moduleName}.service.${className}Service;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
+
+/**
+ * ${comments} API
+ *
+ * @author ${author} ${datetime}
+ * @version 1.0
+ */
+@RestController
+@Tag(name = "${comments}")
+@RequestMapping(value = "v1/${classname}")
+@Slf4j
+public class ${className}Controller {
+
+	@Autowired
+	private ${className}Service ${classname}Service;
+
+	/**
+     * 新增或修改${comments}功能
+	 * @author ${author} ${datetime}
+     */
+	@PostMapping(value = "",consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
+	@Operation(summary = "新增或修改${comments}功能")
+	public ApiResult<${className}DTO> insert${className}(@RequestBody @Validated ${className}DTO ${classname}DTO) {
+		Integer result = ${classname}Service.insertOrUpdate(${classname}DTO);
+		return result > 0 ? ApiResult.ok() : ApiResult.err("失败");
+	}
+
+
+	/**
+     * 按主键删除 ${comments}
+	 * @author ${author} ${datetime}
+     */
+	@DeleteMapping(value = "/{id}")
+	@Operation(summary = "按主键删除${comments}")
+	public ApiResult<${className}DTO> delete${className}ById(@PathVariable String id) {
+		Integer result = ${classname}Service.deleteById(id);
+		return result > 0 ? ApiResult.ok() : ApiResult.err("删除失败");
+	}
+
+	/**
+     * 按主键更新${comments}
+	 * @author ${author} ${datetime}
+     */
+	@PutMapping(value = "",consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
+	@Operation(summary = "按主键更新${comments}")
+	public ApiResult<${className}DTO> update${className}ById(@RequestBody @Validated ${className}DTO ${classname}DTO) {
+		Integer result = ${classname}Service.updateById(${classname}DTO);
+		return result > 0 ? ApiResult.ok() : ApiResult.err("更新失败");
+	}
+
+	/**
+     * 按主键置为无效
+	 * @author ${author} ${datetime}
+     */
+	@PutMapping(value = "/disable/{id}")
+	@Operation(summary = "按主键置为无效")
+	public ApiResult<${className}DTO> disable${className}ById(@PathVariable String id) {
+		Integer result = ${classname}Service.updateToInValidateById(id);
+		return result > 0 ? ApiResult.ok() : ApiResult.err("操作失败");
+	}
+
+	/**
+     * 按主键置为有效
+	 * @author ${author} ${datetime}
+     */
+	@PutMapping(value = "/enable/{id}")
+	@Operation(summary = "按主键置为有效")
+	public ApiResult<${className}DTO> enable${className}ById(@PathVariable String id) {
+		Integer result = ${classname}Service.updateToValidateById(id);
+		return result > 0 ? ApiResult.ok() : ApiResult.err("操作失败");
+	}
+
+	/**
+     * 按主键查询${comments}
+	 * @author ${author} ${datetime}
+     */
+	@GetMapping(value = "/select/{id}")
+	@Operation(summary = "按主键查询${comments}")
+	public ApiResult<${className}DTO> select${className}ById(@PathVariable String id) {
+		return ApiResult.ok(${classname}Service.selectById(id));
+	}
+
+	/**
+     * 根据非空属性查询全部${comments}
+	 * @author ${author} ${datetime}
+     */
+	@PostMapping(value = "/list",consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
+	@Operation(summary = "查询全部${comments}")
+	public ApiResult<List<${className}DTO>> list${className}(@RequestBody ${className}DTO ${classname}DTO) throws IllegalAccessException {
+		List<${className}DTO> ${classname}DtoList = ${classname}Service.selectListByObject(${classname}DTO);
+		return ApiResult.ok(${classname}DtoList);
+	}
+
+	/**
+     * 根据条件分页查询全部${comments}
+	 * @author ${author} ${datetime}
+     */
+	@PostMapping(value = "/pageList",consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
+	@Operation(summary = "根据条件分页查询全部${comments}")
+	public ApiResult<PageDTO<${className}DTO>> pageList(@RequestBody @Validated PageDTO<${className}DTO> pageDTO) throws IllegalAccessException {
+		Page<${className}DTO> page = PageHelper.startPage(pageDTO.getPageNum(), pageDTO.getPageSize());
+		List<${className}DTO> ${classname}DtoList = ${classname}Service.selectListByObject(pageDTO.getCondition());
+		return ApiResult.ok(new PageDTO<>(page, ${classname}DtoList));
+	}
+}
