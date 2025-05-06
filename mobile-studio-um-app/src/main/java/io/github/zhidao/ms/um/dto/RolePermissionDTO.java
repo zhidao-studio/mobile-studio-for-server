@@ -10,7 +10,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDateTime;
 
 /**
- * 公司企业表DTO
+ * 角色权限关联表DTO
  *
  * @author ZHANLS 2025年05月06日
  * @version 1.0
@@ -19,16 +19,16 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CompanyDTO extends BaseDTO {
+public class RolePermissionDTO extends BaseDTO {
 
 	private static final long serialVersionUID = 1L;
+	/** 角色ID */
+	@Schema(description = "角色ID")
+	private String roleId;
+	/** 权限ID */
+	@Schema(description = "权限ID")
+	private String permissionId;
 	/** 企业ID */
 	@Schema(description = "企业ID")
 	private String companyId;
-	/** 企业名称 */
-	@Schema(description = "企业名称")
-	private String companyName;
-	/** 企业类型 */
-	@Schema(description = "企业类型")
-	private String companyType;
 }

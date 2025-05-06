@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 /**
- * 公司企业表Entity
+ * 角色表（支持角色层次）Entity
  *
  * @author ZHANLS 2025年05月06日
  * @version 1.0
@@ -20,21 +20,27 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "um_company")
-public class Company extends BaseEntity {
+@Table(name = "um_role")
+public class Role extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
+	/** 角色ID */
+	@Column(name="role_id")
+	private String roleId;
+	/** 角色名称 */
+	@Column(name="role_name")
+	private String roleName;
+	/** 父级角色ID（根角色为NULL） */
+	@Column(name="parent_role_id")
+	private String parentRoleId;
+	/** 角色层级（根角色0，子角色逐层+1） */
+	@Column(name="role_level")
+	private Integer roleLevel;
 	/** 企业ID */
 	@Column(name="company_id")
 	private String companyId;
-	/** 企业名称 */
-	@Column(name="company_name")
-	private String companyName;
-	/** 企业类型 */
-	@Column(name="company_type")
-	private String companyType;
     /** id 构造器*/
-    public Company(String id) {
+    public Role(String id) {
        super.setId(id);
     }
 }

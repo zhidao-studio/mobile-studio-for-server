@@ -20,7 +20,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 /**
  * 公司企业表 API
  *
- * @author zhanls 2025年04月25日
+ * @author ZHANLS 2025年05月06日
  * @version 1.0
  */
 @RestController
@@ -34,7 +34,7 @@ public class CompanyController {
 
 	/**
      * 新增或修改公司企业表功能
-	 * @author zhanls 2025年04月25日
+	 * @author ZHANLS 2025年05月06日
      */
 	@PostMapping(value = "",consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
 	@Operation(summary = "新增或修改公司企业表功能")
@@ -46,7 +46,7 @@ public class CompanyController {
 
 	/**
      * 按主键删除 公司企业表
-	 * @author zhanls 2025年04月25日
+	 * @author ZHANLS 2025年05月06日
      */
 	@DeleteMapping(value = "/{id}")
 	@Operation(summary = "按主键删除公司企业表")
@@ -57,7 +57,7 @@ public class CompanyController {
 
 	/**
      * 按主键更新公司企业表
-	 * @author zhanls 2025年04月25日
+	 * @author ZHANLS 2025年05月06日
      */
 	@PutMapping(value = "",consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
 	@Operation(summary = "按主键更新公司企业表")
@@ -68,7 +68,7 @@ public class CompanyController {
 
 	/**
      * 按主键置为无效
-	 * @author zhanls 2025年04月25日
+	 * @author ZHANLS 2025年05月06日
      */
 	@PutMapping(value = "/disable/{id}")
 	@Operation(summary = "按主键置为无效")
@@ -79,7 +79,7 @@ public class CompanyController {
 
 	/**
      * 按主键置为有效
-	 * @author zhanls 2025年04月25日
+	 * @author ZHANLS 2025年05月06日
      */
 	@PutMapping(value = "/enable/{id}")
 	@Operation(summary = "按主键置为有效")
@@ -90,7 +90,7 @@ public class CompanyController {
 
 	/**
      * 按主键查询公司企业表
-	 * @author zhanls 2025年04月25日
+	 * @author ZHANLS 2025年05月06日
      */
 	@GetMapping(value = "/select/{id}")
 	@Operation(summary = "按主键查询公司企业表")
@@ -100,7 +100,7 @@ public class CompanyController {
 
 	/**
      * 根据非空属性查询全部公司企业表
-	 * @author zhanls 2025年04月25日
+	 * @author ZHANLS 2025年05月06日
      */
 	@PostMapping(value = "/list",consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
 	@Operation(summary = "查询全部公司企业表")
@@ -111,7 +111,7 @@ public class CompanyController {
 
 	/**
      * 根据条件分页查询全部公司企业表
-	 * @author zhanls 2025年04月25日
+	 * @author ZHANLS 2025年05月06日
      */
 	@PostMapping(value = "/pageList",consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
 	@Operation(summary = "根据条件分页查询全部公司企业表")

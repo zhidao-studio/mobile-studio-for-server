@@ -1,43 +1,43 @@
 package io.github.zhidao.ms.um.service;
 
-import io.github.zhidao.ms.um.entity.Company;
-import io.github.zhidao.ms.um.dto.CompanyDTO;
+import io.github.zhidao.ms.um.entity.Position;
+import io.github.zhidao.ms.um.dto.PositionDTO;
 
 import java.util.List;
 
 /**
- * 公司企业表业务逻辑接口
+ * 岗位表（支持岗位层次）业务逻辑接口
  *
  * @author ZHANLS 2025年05月06日
  * @version 1.0
  **/
-public interface CompanyService {
+public interface PositionService {
 
 	/**
-	 * 新增公司企业表
+	 * 新增岗位表（支持岗位层次）
 	 *
-	 * @param companyDTO
+	 * @param positionDTO
 	 * @return Integer
 	 * @updateRecord - 初次创建
 	 * @version 1.0 (2025年05月06日)
 	 * @author ZHANLS
 	 **/
-	Integer insert(CompanyDTO companyDTO);
+	Integer insert(PositionDTO positionDTO);
 
     /**
-     * 新增或修改公司企业表
+     * 新增或修改岗位表（支持岗位层次）
      *
-     * @param companyDTO
+     * @param positionDTO
      * @return Integer
      * @updateRecord - 初次创建
      * @version 1.0 (2025年05月06日)
      * @author ZHANLS
      **/
-    Integer insertOrUpdate(CompanyDTO companyDTO);
+    Integer insertOrUpdate(PositionDTO positionDTO);
 
 
 	/**
-	 * 删除公司企业表，实际上是修改字段is_delete 0未删除 1已删除
+	 * 删除岗位表（支持岗位层次），实际上是修改字段is_delete 0未删除 1已删除
 	 *
 	 * @param id
 	 * @return Integer
@@ -70,47 +70,47 @@ public interface CompanyService {
 	Integer updateToValidateById(String id);
 
 	/**
-	 * 修改公司企业表
+	 * 修改岗位表（支持岗位层次）
 	 *
-	 * @param companyDTO
+	 * @param positionDTO
 	 * @return Integer
 	 * @updateRecord - 初次创建
 	 * @version 1.0 (2025年05月06日)
 	 * @author ZHANLS
 	 **/
-	Integer updateById(CompanyDTO companyDTO);
+	Integer updateById(PositionDTO positionDTO);
 
 	/**
-	 * 按参数companyDTO的非空属性查询列表
+	 * 按参数positionDTO的非空属性查询列表
 	 *
-	 * @param companyDTO
+	 * @param positionDTO
 	 * @return Integer
 	 * @updateRecord - 初次创建
 	 * @version 1.0 (2025年05月06日)
 	 * @author ZHANLS
 	 **/
-	List<CompanyDTO> selectListByObject(CompanyDTO companyDTO);
+	List<PositionDTO> selectListByObject(PositionDTO positionDTO);
 
 	/**
-	 * 按参数companyDTO的非空属性查询单条记录
+	 * 按参数positionDTO的非空属性查询单条记录
 	 *
-	 * @param companyDTO
+	 * @param positionDTO
 	 * @return Integer
 	 * @updateRecord - 初次创建
 	 * @version 1.0 (2025年05月06日)
 	 * @author ZHANLS
 	 **/
-	CompanyDTO selectOneByObject(CompanyDTO companyDTO);
+	PositionDTO selectOneByObject(PositionDTO positionDTO);
 
 	/**
-	 * 主键查询公司企业表
+	 * 主键查询岗位表（支持岗位层次）
 	 *
 	 * @param id
-	 * @return CompanyDTO
+	 * @return PositionDTO
 	 * @updateRecord - 初次创建
 	 * @version 1.0 (2025年05月06日)
 	 * @author ZHANLS
 	 **/
-	CompanyDTO selectById(String id);
+	PositionDTO selectById(String id);
 
 }

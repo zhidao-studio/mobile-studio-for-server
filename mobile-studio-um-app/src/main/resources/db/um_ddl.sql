@@ -37,7 +37,7 @@ CREATE TABLE `template` (
 -- ----------------------------
 DROP TABLE IF EXISTS `um_company`;
 CREATE TABLE `um_company` (
-  `id` varchar(32)  COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'ID',
+  `id` varchar(32) NOT NULL COMMENT 'ID',
   `create_user` varchar(32)   NOT NULL COMMENT '创建人',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_user` varchar(32)   NOT NULL COMMENT '更新人',
@@ -55,7 +55,7 @@ CREATE TABLE `um_company` (
 -- ----------------------------
 DROP TABLE IF EXISTS `um_org`;
 CREATE TABLE `um_org` (
-  `id` varchar(32)   NOT NULL COMMENT 'ID',
+  `id` varchar(32) NOT NULL COMMENT 'ID',
   `create_user` varchar(32)   NOT NULL COMMENT '创建人',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_user` varchar(32)   NOT NULL COMMENT '更新人',

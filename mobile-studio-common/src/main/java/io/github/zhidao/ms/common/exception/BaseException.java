@@ -1,5 +1,6 @@
 package io.github.zhidao.ms.common.exception;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -9,6 +10,7 @@ import java.io.Serializable;
  **/
 public class BaseException extends RuntimeException implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 4597372192247591163L;
 
     public BaseException() {

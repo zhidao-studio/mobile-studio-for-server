@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * 公司企业表业务逻辑实现
  *
- * @author zhanls 2025年04月25日
+ * @author ZHANLS 2025年05月06日
  * @version 1.0
  */
 @Service
@@ -32,8 +32,8 @@ public class CompanyServiceImpl extends BaseCurdService<Company> implements Comp
      * @param companyDTO
      * @return Integer
      * @updateRecord - 初次创建
-     * @version 1.0 (2025年04月25日)
-     * @author zhanls
+     * @version 1.0 (2025年05月06日)
+     * @author ZHANLS
      */
 	@Override
 	public Integer insert(CompanyDTO companyDTO) {
@@ -46,8 +46,8 @@ public class CompanyServiceImpl extends BaseCurdService<Company> implements Comp
      * @param companyDTO
      * @return Integer
      * @updateRecord - 初次创建
-     * @version 1.0 (2025年04月25日)
-     * @author zhanls
+     * @version 1.0 (2025年05月06日)
+     * @author ZHANLS
      */
 	@Override
 	public Integer insertOrUpdate(CompanyDTO companyDTO) {
@@ -60,8 +60,8 @@ public class CompanyServiceImpl extends BaseCurdService<Company> implements Comp
      * @param id
      * @return Integer
      * @updateRecord - 初次创建
-     * @version 1.0 (2025年04月25日)
-     * @author zhanls
+     * @version 1.0 (2025年05月06日)
+     * @author ZHANLS
      */
 	@Override
 	public Integer deleteById(String id) {
@@ -74,8 +74,8 @@ public class CompanyServiceImpl extends BaseCurdService<Company> implements Comp
      * @param id
      * @return Integer
      * @updateRecord - 初次创建
-     * @version 1.0 (2025年04月25日)
-     * @author zhanls
+     * @version 1.0 (2025年05月06日)
+     * @author ZHANLS
      */
 	@Override
 	public Integer updateToInValidateById(String id) {
@@ -88,8 +88,8 @@ public class CompanyServiceImpl extends BaseCurdService<Company> implements Comp
      * @param id
      * @return Integer
      * @updateRecord - 初次创建
-     * @version 1.0 (2025年04月25日)
-     * @author zhanls
+     * @version 1.0 (2025年05月06日)
+     * @author ZHANLS
      */
 	@Override
 	public Integer updateToValidateById(String id) {
@@ -102,8 +102,8 @@ public class CompanyServiceImpl extends BaseCurdService<Company> implements Comp
      * @param companyDTO
      * @return Integer
      * @updateRecord - 初次创建
-     * @version 1.0 (2025年04月25日)
-     * @author zhanls
+     * @version 1.0 (2025年05月06日)
+     * @author ZHANLS
      */
 	@Override
 	public Integer updateById(CompanyDTO companyDTO) {
@@ -116,8 +116,8 @@ public class CompanyServiceImpl extends BaseCurdService<Company> implements Comp
      * @param companyDTO
      * @return List<CompanyDTO>
      * @updateRecord - 初次创建
-     * @version 1.0 (2025年04月25日)
-     * @author zhanls
+     * @version 1.0 (2025年05月06日)
+     * @author ZHANLS
      */
 	@Override
 	public List<CompanyDTO> selectListByObject(CompanyDTO companyDTO){
@@ -135,8 +135,8 @@ public class CompanyServiceImpl extends BaseCurdService<Company> implements Comp
      * @param companyDTO
      * @return List<CompanyDTO>
      * @updateRecord - 初次创建
-     * @version 1.0 (2025年04月25日)
-     * @author zhanls
+     * @version 1.0 (2025年05月06日)
+     * @author ZHANLS
      */
 	@Override
 	public CompanyDTO selectOneByObject(CompanyDTO companyDTO) {
@@ -150,8 +150,8 @@ public class CompanyServiceImpl extends BaseCurdService<Company> implements Comp
      * @param id
      * @return CompanyDTO
      * @updateRecord - 初次创建
-     * @version 1.0 (2025年04月25日)
-     * @author zhanls
+     * @version 1.0 (2025年05月06日)
+     * @author ZHANLS
      */
 	@Override
 	public CompanyDTO selectById(String id) {

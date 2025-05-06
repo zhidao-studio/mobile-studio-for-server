@@ -2,14 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--注册操作对应Entity的Mapper类-->
-<mapper namespace="io.github.zhidao.ms.um.mapper.CompanyMapper">
+<mapper namespace="io.github.zhidao.ms.um.mapper.PositionMapper">
 
 	<!-- Entity类的ResultMap -->
-	<resultMap type="io.github.zhidao.ms.um.entity.Company" id="companyResultMap">
+	<resultMap type="io.github.zhidao.ms.um.entity.Position" id="positionResultMap">
 		<result property="id" column="id"/>
+		<result property="positionId" column="position_id"/>
+		<result property="positionName" column="position_name"/>
+		<result property="parentPositionId" column="parent_position_id"/>
 		<result property="companyId" column="company_id"/>
-		<result property="companyName" column="company_name"/>
-		<result property="companyType" column="company_type"/>
 		<result property="createUser" column="create_user"/>
 		<result property="createTime" column="create_time"/>
 		<result property="updateUser" column="update_user"/>
@@ -19,11 +20,12 @@
 	</resultMap>
 
 	<!--高频sql子语句，全部列的sql段-->
-	<sql id="companyColSql">
+	<sql id="positionColSql">
 		id,
+		position_id,
+		position_name,
+		parent_position_id,
 		company_id,
-		company_name,
-		company_type,
 		create_user,
 		create_time,
 		update_user,

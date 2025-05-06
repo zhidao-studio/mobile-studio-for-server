@@ -1,43 +1,43 @@
 package io.github.zhidao.ms.um.service;
 
-import io.github.zhidao.ms.um.entity.Company;
-import io.github.zhidao.ms.um.dto.CompanyDTO;
+import io.github.zhidao.ms.um.entity.RolePermission;
+import io.github.zhidao.ms.um.dto.RolePermissionDTO;
 
 import java.util.List;
 
 /**
- * 公司企业表业务逻辑接口
+ * 角色权限关联表业务逻辑接口
  *
  * @author ZHANLS 2025年05月06日
  * @version 1.0
  **/
-public interface CompanyService {
+public interface RolePermissionService {
 
 	/**
-	 * 新增公司企业表
+	 * 新增角色权限关联表
 	 *
-	 * @param companyDTO
+	 * @param rolePermissionDTO
 	 * @return Integer
 	 * @updateRecord - 初次创建
 	 * @version 1.0 (2025年05月06日)
 	 * @author ZHANLS
 	 **/
-	Integer insert(CompanyDTO companyDTO);
+	Integer insert(RolePermissionDTO rolePermissionDTO);
 
     /**
-     * 新增或修改公司企业表
+     * 新增或修改角色权限关联表
      *
-     * @param companyDTO
+     * @param rolePermissionDTO
      * @return Integer
      * @updateRecord - 初次创建
      * @version 1.0 (2025年05月06日)
      * @author ZHANLS
      **/
-    Integer insertOrUpdate(CompanyDTO companyDTO);
+    Integer insertOrUpdate(RolePermissionDTO rolePermissionDTO);
 
 
 	/**
-	 * 删除公司企业表，实际上是修改字段is_delete 0未删除 1已删除
+	 * 删除角色权限关联表，实际上是修改字段is_delete 0未删除 1已删除
 	 *
 	 * @param id
 	 * @return Integer
@@ -70,47 +70,47 @@ public interface CompanyService {
 	Integer updateToValidateById(String id);
 
 	/**
-	 * 修改公司企业表
+	 * 修改角色权限关联表
 	 *
-	 * @param companyDTO
+	 * @param rolePermissionDTO
 	 * @return Integer
 	 * @updateRecord - 初次创建
 	 * @version 1.0 (2025年05月06日)
 	 * @author ZHANLS
 	 **/
-	Integer updateById(CompanyDTO companyDTO);
+	Integer updateById(RolePermissionDTO rolePermissionDTO);
 
 	/**
-	 * 按参数companyDTO的非空属性查询列表
+	 * 按参数rolePermissionDTO的非空属性查询列表
 	 *
-	 * @param companyDTO
+	 * @param rolePermissionDTO
 	 * @return Integer
 	 * @updateRecord - 初次创建
 	 * @version 1.0 (2025年05月06日)
 	 * @author ZHANLS
 	 **/
-	List<CompanyDTO> selectListByObject(CompanyDTO companyDTO);
+	List<RolePermissionDTO> selectListByObject(RolePermissionDTO rolePermissionDTO);
 
 	/**
-	 * 按参数companyDTO的非空属性查询单条记录
+	 * 按参数rolePermissionDTO的非空属性查询单条记录
 	 *
-	 * @param companyDTO
+	 * @param rolePermissionDTO
 	 * @return Integer
 	 * @updateRecord - 初次创建
 	 * @version 1.0 (2025年05月06日)
 	 * @author ZHANLS
 	 **/
-	CompanyDTO selectOneByObject(CompanyDTO companyDTO);
+	RolePermissionDTO selectOneByObject(RolePermissionDTO rolePermissionDTO);
 
 	/**
-	 * 主键查询公司企业表
+	 * 主键查询角色权限关联表
 	 *
 	 * @param id
-	 * @return CompanyDTO
+	 * @return RolePermissionDTO
 	 * @updateRecord - 初次创建
 	 * @version 1.0 (2025年05月06日)
 	 * @author ZHANLS
 	 **/
-	CompanyDTO selectById(String id);
+	RolePermissionDTO selectById(String id);
 
 }

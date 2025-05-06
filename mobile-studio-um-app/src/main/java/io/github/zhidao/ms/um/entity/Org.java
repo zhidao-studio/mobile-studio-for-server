@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 /**
- * 公司企业表Entity
+ * 组织表Entity
  *
  * @author ZHANLS 2025年05月06日
  * @version 1.0
@@ -20,21 +20,24 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "um_company")
-public class Company extends BaseEntity {
+@Table(name = "um_org")
+public class Org extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
+	/** 组织ID */
+	@Column(name="org_id")
+	private String orgId;
+	/** 组织名称 */
+	@Column(name="org_name")
+	private String orgName;
+	/** 父级组织ID */
+	@Column(name="parent_org_id")
+	private String parentOrgId;
 	/** 企业ID */
 	@Column(name="company_id")
 	private String companyId;
-	/** 企业名称 */
-	@Column(name="company_name")
-	private String companyName;
-	/** 企业类型 */
-	@Column(name="company_type")
-	private String companyType;
     /** id 构造器*/
-    public Company(String id) {
+    public Org(String id) {
        super.setId(id);
     }
 }
