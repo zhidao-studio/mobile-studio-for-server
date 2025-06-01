@@ -12,6 +12,8 @@
     <properties>
         <revision>1.0.0</revision>
         <java.version>17</java.version>
+        <spring-boot.version>3.4.4</spring-boot.version>
+        <hutool.version>6.6.1</hutool.version>
     </properties>
 
     <packaging>pom</packaging>
@@ -19,7 +21,36 @@
     <modules>
         <module>mobile-studio-common</module>
         <module>mobile-studio-um-app</module>
-        <module>code-generator</module>
+<!--        <module>code-generator</module>-->
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- SpringBoot的依赖配置-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- hutool 的依赖配置-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-bom</artifactId>
+                <version>${hutool.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.zhidao.ms</groupId>
+                <artifactId>mobile-studio-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
